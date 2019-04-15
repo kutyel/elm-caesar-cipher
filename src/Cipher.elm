@@ -1,4 +1,4 @@
-module Cipher exposing (toCaesar)
+module Cipher exposing (cipher, fromCaesar, toCaesar)
 
 import Char exposing (fromCode, isUpper, toCode)
 import String exposing (fromList, toList)
