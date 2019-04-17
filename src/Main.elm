@@ -1,45 +1,51 @@
-module Main exposing (Model, Msg(..), init, main, update, view)
+module Main exposing (main)
 
 import Browser exposing (sandbox)
-import Cipher exposing (toCaesar)
+import Cipher exposing (fromCaesar, toCaesar)
 import Html exposing (Html, div, h1, input, text)
 import Html.Attributes exposing (placeholder, value)
 import Html.Events exposing (onInput)
 
 
-type alias Model =
-    { message : String }
+type alias State =
+    { decrypted : String
+    , encrypted : String
+    }
 
 
-init : Model
+init : State
 init =
-    { message = "" }
+    State "" ""
 
 
-type Msg
-    = Change String
+type Action
+    = Encode String
+    | Decode String
 
 
-update : Msg -> Model -> Model
-update msg model =
-    case msg of
-        Change str ->
-            { model | message = str }
+reducer : Action -> State -> State
+reducer action _ =
+    case action of
+        Encode str ->
+            State str (toCaesar str)
+
+        Decode str ->
+            State (fromCaesar str) str
 
 
-view : Model -> Html Msg
-view { message } =
+view : State -> Html Action
+view { encrypted, decrypted } =
     div []
         [ h1 [] [ text "Elm Caesar Cipher" ]
-        , input [ placeholder "Encrypt your message!", value message, onInput Change ] []
-        , div [] [ text <| toCaesar message ]
+        , input [ placeholder "Encrypt your message!", value decrypted, onInput Encode ] []
+        , input [ placeholder "Decrypt your nmessage!", value encrypted, onInput Decode ] []
         ]
 
 
-main : Program () Model Msg
+main : Program () State Action
 main =
     sandbox
         { view = view
         , init = init
-        , update = update
+        , update = reducer
         }

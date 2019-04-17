@@ -11,7 +11,7 @@ $ elm-app start
 ## Run the tests
 
 ```sh
-$ elm-test
+$ elm-app test
 ```
 
 ## Build for production
