@@ -1,0 +1,36 @@
+{
+  "name": "elm-caesar-cipher",
+  "version": "1.0.0",
+  "description": "🌳 Caesar Cipher made in Elm!",
+  "browserslist": "last 2 Safari versions, last 2 Chrome versions",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "parcel public/index.html",
+    "build": "parcel build public/index.html --dist-dir build",
+    "test": "elm-test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kutyel/elm-caesar-cipher.git"
+  },
+  "keywords": [],
+  "author": {
+    "email": "flaviocorpa@gmail.com",
+    "name": "Flavio Corpa"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kutyel/elm-caesar-cipher/issues"
+  },
+  "homepage": "https://github.com/kutyel/elm-caesar-cipher#readme",
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.0.0",
+    "@parcel/transformer-elm": "^2.0.0",
+    "@parcel/transformer-webmanifest": "^2.0.0",
+    "elm": "^0.19.1-5",
+    "elm-test": "^0.19.1-revision7",
+    "parcel": "^2.0.0"
+  }
+}

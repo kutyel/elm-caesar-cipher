@@ -5,17 +5,17 @@
 ## Run the app
 
 ```sh
-$ elm-app start
+$ yarn start
 ```
 
 ## Run the tests
 
 ```sh
-$ elm-app test
+$ yarn test
 ```
 
 ## Build for production
 
 ```sh
-$ elm-app build
+$ yarn build
 ```
